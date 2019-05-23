@@ -1,0 +1,6 @@
+set(CONFIGS
+    ${CONFIGS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/l2cache.ini
+    ${CMAKE_CURRENT_SOURCE_DIR}/perfmon.ini
+    PARENT_SCOPE
+)

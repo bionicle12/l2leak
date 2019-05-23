@@ -1,0 +1,79 @@
+set(__HEADERS
+    ${L2AUTH_DIR}/include/l2auth/network/BufferReader.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthOverlapped.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthOverlappedPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthOverlappedSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthPacket.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthPacketPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthPacketSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthServer.h
+    ${L2AUTH_DIR}/include/l2auth/network/CAuthSocket.h
+    ${L2AUTH_DIR}/include/l2auth/network/CIOBuffer.h
+    ${L2AUTH_DIR}/include/l2auth/network/CIOBufferPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/CIOBufferSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/CIOServer.h
+    ${L2AUTH_DIR}/include/l2auth/network/CIOServerInt.h
+    ${L2AUTH_DIR}/include/l2auth/network/CIOSocket.h
+    ${L2AUTH_DIR}/include/l2auth/network/CLogPacket.h
+    ${L2AUTH_DIR}/include/l2auth/network/CLogPacketPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/CLogPacketSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/CLogSocket.h
+    ${L2AUTH_DIR}/include/l2auth/network/CSocketInt.h
+    ${L2AUTH_DIR}/include/l2auth/network/CWantedPacket.h
+    ${L2AUTH_DIR}/include/l2auth/network/CWantedPacketPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/CWantedPacketSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/CWantedSocket.h
+    ${L2AUTH_DIR}/include/l2auth/network/IPPacket.h
+    ${L2AUTH_DIR}/include/l2auth/network/IPPacketPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/IPPacketSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/IPSessionDB.h
+    ${L2AUTH_DIR}/include/l2auth/network/IPSocket.h
+    ${L2AUTH_DIR}/include/l2auth/network/PacketUtils.h
+    ${L2AUTH_DIR}/include/l2auth/network/SocketStatus.h
+    ${L2AUTH_DIR}/include/l2auth/network/WorldSrvPacket.h
+    ${L2AUTH_DIR}/include/l2auth/network/WorldSrvPacketPool.h
+    ${L2AUTH_DIR}/include/l2auth/network/WorldSrvPacketSlot.h
+    ${L2AUTH_DIR}/include/l2auth/network/WorldSrvServer.h
+    ${L2AUTH_DIR}/include/l2auth/network/WorldSrvSocket.h
+)
+
+set(__SOURCES
+    BufferReader.cpp
+    CAuthOverlapped.cpp
+    CAuthOverlappedPool.cpp
+    CAuthOverlappedSlot.cpp
+    CAuthPacket.cpp
+    CAuthPacketPool.cpp
+    CAuthPacketSlot.cpp
+    CAuthServer.cpp
+    CAuthSocket.cpp
+    CIOBuffer.cpp
+    CIOBufferPool.cpp
+    CIOBufferSlot.cpp
+    CIOServer.cpp
+    CIOServerInt.cpp
+    CIOSocket.cpp
+    CLogPacket.cpp
+    CLogPacketPool.cpp
+    CLogPacketSlot.cpp
+    CLogSocket.cpp
+    CSocketInt.cpp
+    CWantedPacket.cpp
+    CWantedPacketPool.cpp
+    CWantedPacketSlot.cpp
+    CWantedSocket.cpp
+    IPPacket.cpp
+    IPPacketPool.cpp
+    IPPacketSlot.cpp
+    IPSessionDB.cpp
+    IPSocket.cpp
+    PacketUtils.cpp
+    SocketStatus.cpp
+    WorldSrvPacket.cpp
+    WorldSrvPacketPool.cpp
+    WorldSrvPacketSlot.cpp
+    WorldSrvServer.cpp
+    WorldSrvSocket.cpp
+)
+
+add_library(${PROJECT_NAME}_network OBJECT ${__SOURCES} ${__HEADERS})
