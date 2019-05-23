@@ -1,0 +1,8 @@
+
+set(CONFIGS
+    ${CONFIGS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/BlockIPs.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/config.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/serverlist
+    PARENT_SCOPE
+)

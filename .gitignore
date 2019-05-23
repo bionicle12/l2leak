@@ -1,0 +1,7 @@
+sources/
+release/
+debug/
+build/
+build-*/
+*.user
+exportClasses.py

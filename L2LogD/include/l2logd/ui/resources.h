@@ -1,0 +1,54 @@
+#pragma once
+
+#define VS_VERSION_INFO 1
+
+// STRING_TABLE
+#define STR_CAPTION 103      // 0x67
+#define STR_HELLO_WORLD 106  // 0x6A
+#define STR_L2LOGD 109       // 0x6D
+
+// ACCELERATORS
+#define ACCELERATOR_L2LOGD 109  // 0x6D
+
+// ICONS
+#define ICON_LOGD_32x32 107  // 0x6B
+#define ICON_LOGD_16x16 108  // 0x6C
+
+// MENUS
+#define MAIN_MENU 109  // 0x6D
+
+// MENU_ITEMS
+#define MENU_ITEM_EXIT 105                    // 0x69
+#define MENU_ITEM_CONFIGURE 32781             // 0x800D
+#define MENU_ITEM_START_SERVER_MONITOR 32782  // 0x800E
+#define MENU_ITEM_STOP_SERVER_MONITOR 32783   // 0x800F
+#define MENU_ITEM_START_INSERT_DATA 32777     // 0x8009
+#define MENU_ITEM_STOP_INSERT_DATA 32778      // 0x800A
+#define MENU_ITEM_INSERT_ITEM_NAME 139        // 0x8B
+#define MENU_ITEM_INSERT_NPC_NAME 140         // 0x8C
+#define MENU_ITEM_INSERT_QUEST_NAME 142       // 0x8E
+#define MENU_ITEM_INSERT_SKILL_NAME 141       // 0x8D
+#define MENU_ITEM_ABOUT 104                   // 0x68
+#define MENU_ITEM_START_MONITOR 133           // 0x85
+#define MENU_ITEM_RELOAD_CONF 144             // 0x90
+#define MENU_ITEM_STOP_MONITOR 145            // 0x91
+#define MENU_ITEM_SPACEUSED 146               // 0x92
+
+// Dialogs
+#define DIALOG_ABOUT 103              // 0x67
+#define DIALOG_LOGDB_LOGIN 130        // 0x82
+#define DIALOG_CONFIGURATION 132      // 0x84
+#define DIALOG_BBS_LOGIN 133          // 0x85
+#define DIALOG_L2LOGD_SERIAL_KEY 147  // 0x93
+
+// Controls
+#define CONTROL_LOGDB_LOGIN_EDIT_BOX_FILE_DB 1000                   // 0x3E8
+#define CONTROL_LOGDB_LOGIN_EDIT_BOX_LOGIN_NAME 1001                // 0x3E9
+#define CONTROL_LOGDB_LOGIN_EDIT_BOX_PASSWORD 1002                  // 0x3EA
+#define CONTROL_CONFIGURATION_EDIT_BOX_BCP_LOG_INTERVAL 1003        // 0x3EB
+#define CONTROL_CONFIGURATION_EDIT_BOX_SERVER_REPORT_INTERVAL 1004  // 0x3EC
+#define CONTROL_CONFIGURATION_CHECK_BOX_BCP_ON 1006                 // 0x3EE
+#define CONTROL_BBS_LOGIN_EDIT_BOX_FILE_DB 1009                     // 0x3F1
+#define CONTROL_BBS_LOGIN_EDIT_BOX_LOGIN_NAME 1010                  // 0x3F2
+#define CONTROL_BBS_LOGIN_EDIT_BOX_PASSWORD 1011                    // 0x3F3
+#define CONTROL_SERIAL_KEY_EDIT_BOX_SERIAL_KEY 1012                 // 0x3F4

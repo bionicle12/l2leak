@@ -1,0 +1,10 @@
+set(CONFIGS
+    ${CONFIGS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/l2logd.ini
+    ${CMAKE_CURRENT_SOURCE_DIR}/perfmon.ini
+    ${CMAKE_CURRENT_SOURCE_DIR}/itemname-k.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/npcname-k.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/questname-k.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/skillname-k.txt
+    PARENT_SCOPE
+)
