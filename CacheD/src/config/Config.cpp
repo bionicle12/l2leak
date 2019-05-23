@@ -32,6 +32,7 @@ int Config::s_worldDBTimeOut = 0;                 // 0x006529C0
 int Config::s_bbsDBTimeOut = 0;                   // 0x006529C4
 bool Config::s_deleteAccount = false;             // 0x006529CC
 char* Config::s_mailServer = NULL;                // 0x00AD5608
+bool Config::s_alternativeSqlConnect = false;
 
 // L2CacheD 0x0040F7E0
 bool Config::ExceptionMailing()
@@ -109,6 +110,8 @@ void Config::Init()
 
     // Config::s_deleteAccount = ::GetPrivateProfileIntW(L"World", L"DeleteAccount", 0, fileName) != 0; FIXED: logically it belongs to SQL
     Config::s_deleteAccount = ::GetPrivateProfileIntW(L"SQL", L"DeleteAccount", 0, fileName) != 0;
+
+	Config::s_alternativeSqlConnect = ::GetPrivateProfileIntW(L"SQL", L"AlternativeSqlConnect", 0, fileName) != 0;
 
     unguard();
 }
