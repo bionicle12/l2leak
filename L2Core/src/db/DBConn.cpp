@@ -810,9 +810,9 @@ bool DBConn::Login()
     guard(L"DBConn::Login");
 
 #ifdef L2CACHED
-    if (!DBConn::LoadStrFromReg(DBConn::s_connStr, L"connStr", L"Software\\PROJECT_L2\\L2CACHED"))
+	if (!DBConn::LoadStrFromFile(DBConn::s_connStr) && !DBConn::LoadStrFromReg(DBConn::s_connStr, L"connStr", L"Software\\PROJECT_L2\\L2CACHED"))
 #elif defined L2LOGD
-    if (!DBConn::LoadStrFromReg(DBConn::s_connStr, L"connStr", L"Software\\PROJECT_L2\\L2LOGD"))
+	if (!DBConn::LoadStrFromFile(DBConn::s_connStr) && !DBConn::LoadStrFromReg(DBConn::s_connStr, L"connStr", L"Software\\PROJECT_L2\\L2LOGD"))
 #elif
 #error "Undefined"
 #endif  // #ifdef L2CACHED
@@ -829,9 +829,9 @@ bool DBConn::Login()
     if (Config::s_differentBBSConn == true)
     {
 #ifdef L2CACHED
-        if (!DBConn::LoadStrFromReg(DBConn::s_connStrBBS, L"connStrBBS", L"Software\\PROJECT_L2\\L2CACHED"))
+		if (!DBConn::LoadStrFromFile(DBConn::s_connStrBBS) && !DBConn::LoadStrFromReg(DBConn::s_connStrBBS, L"connStrBBS", L"Software\\PROJECT_L2\\L2CACHED"))
 #elif defined L2LOGD
-        if (!DBConn::LoadStrFromReg(DBConn::s_connStrBBS, L"connStrBBS", L"Software\\PROJECT_L2\\L2LOGD"))
+		if (!DBConn::LoadStrFromFile(DBConn::s_connStrBBS) && !DBConn::LoadStrFromReg(DBConn::s_connStrBBS, L"connStrBBS", L"Software\\PROJECT_L2\\L2LOGD"))
 #elif
 #error "Undefined"
 #endif  // #ifdef L2CACHED
@@ -974,6 +974,60 @@ void DBConn::Error(SQLSMALLINT handleType, SQLHANDLE handle, const wchar_t* quer
     }
 
     unguard();
+}
+
+// Load DB data from .ini 
+bool DBConn::LoadStrFromFile(wchar_t* str)
+{
+	guard(L"bool DBConn::LoadStrFromFile(wchar_t* str)");
+
+	if (Config::s_alternativeSqlConnect)
+	{
+		wchar_t buffer[256];
+		const wchar_t fileN[] = L"..\\dbconn.ini";
+		if (_waccess(fileN, 0) == -1) // 0 = Existence only
+		{
+			g_winlog.Add(LOG_ERROR, L"cannot read file \"%s\". Please create it in upfolder, like ../. Or switched off AlternativeSqlConnect.", fileN);
+			unguard();
+			return false;
+		}
+		else
+		{
+			g_winlog.Add(LOG_INF, L"[SQL] AlternativeSqlConnect == 1;");
+		}
+
+		lstrcpyW(str, L"DRIVER=");
+		::GetPrivateProfileStringW(L"SQL", L"dbDriverName", L"", buffer, sizeof(buffer), fileN);
+		lstrcatW(str, buffer);
+
+		lstrcatW(str, L";SERVER=");
+		::GetPrivateProfileStringW(L"SQL", L"dbServer", L"", buffer, sizeof(buffer), fileN);
+		lstrcatW(str, buffer);
+
+		lstrcatW(str, L";DATABASE=");
+#ifdef L2CACHED
+		::GetPrivateProfileStringW(L"SQL", L"dbWorldName", L"", buffer, sizeof(buffer), fileN);
+#elif defined L2LOGD
+		::GetPrivateProfileStringW(L"SQL", L"dbLogName", L"", buffer, sizeof(buffer), fileN);
+#elif
+#error "Undefined"
+#endif  // #ifdef L2CACHED
+		lstrcatW(str, buffer);
+
+		lstrcatW(str, L";UID=");
+		::GetPrivateProfileStringW(L"SQL", L"dbLogin", L"", buffer, sizeof(buffer), fileN);
+		lstrcatW(str, buffer);
+
+		lstrcatW(str, L";PWD=");
+		::GetPrivateProfileStringW(L"SQL", L"dbPass", L"", buffer, sizeof(buffer), fileN);
+		lstrcatW(str, buffer);
+
+		unguard();
+		return true;
+	}
+
+	unguard();
+	return false;
 }
 
 // L2LogD 0x004060B0, L2CacheD 0x00465E70
