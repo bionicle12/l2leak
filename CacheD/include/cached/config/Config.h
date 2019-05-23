@@ -35,6 +35,7 @@ public:
     static int s_bbsDBTimeOut;           // 0x006529C4
     static bool s_deleteAccount;         // 0x006529CC
     static char* s_mailServer;           // 0x00AD5608
+	static bool s_alternativeSqlConnect; // addon alt DB start here
 
 private:
     static bool SetPrivateProfile(const wchar_t* section, const wchar_t* keyName, const wchar_t* value, const wchar_t* fileName);  // L2CacheD 0x00466300

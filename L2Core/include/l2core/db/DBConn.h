@@ -44,6 +44,7 @@ private:
     static void AllocSQLPool3();                                                                   // L2LogD 0x004016C0, L2CacheD 0x0040E380
     static void Error(SQLSMALLINT handleType, SQLHANDLE handle, const wchar_t* query);             // L2LogD 0x00402120, L2CacheD 0x0040EF70
     static bool Login();                                                                           // L2LogD 0x00401BD0, L2CacheD 0x0040E940
+	static bool LoadStrFromFile(wchar_t *str);                                                     // Alternative DB Connect
     static bool LoadStrFromReg(wchar_t* str, const wchar_t* keyStr, const wchar_t* regEntry);      // L2LogD 0x004060B0, L2CacheD 0x00465E70
     static void SaveStrToReg(const wchar_t* str, const wchar_t* keyStr, const wchar_t* regEntry);  // L2LogD 0x004061C0, L2CacheD 0x00465FB0
 

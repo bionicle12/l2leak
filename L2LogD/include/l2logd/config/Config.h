@@ -26,6 +26,7 @@ public:
     static int s_BCPThreadCount;             // L2LogD 0x019D7E18
     static const char* s_mailServer;         // L2LogD 0x00441B8C
     static bool s_differentBBSConn;          // L2LogD 0x019D7E0C
+	static bool s_alternativeSqlConnect;     // addon alt DB start here
 
 private:
     static bool SetPrivateProfile(const wchar_t* section, const wchar_t* keyName, const wchar_t* value, const wchar_t* fileName);  // L2LogD 0x00406400

@@ -23,6 +23,7 @@ uint32_t Config::s_sqlExecLimit(0);              // L2LogD 0x019D7E08
 int Config::s_BCPThreadCount(0);                 // L2LogD 0x019D7E18
 const char* Config::s_mailServer(NULL);          // L2LogD 0x019D7E18
 bool Config::s_differentBBSConn(false);          // L2LogD 0x019D7E0C
+bool Config::s_alternativeSqlConnect = false;
 
 // L2LogD 0x00402630
 bool Config::ExceptionMailing()
@@ -80,6 +81,8 @@ void Config::Init()
     }
 
     Config::s_makeOut = ::GetPrivateProfileIntW(L"LogD", L"MakeOut", 1, fileName) == 1;
+
+	Config::s_alternativeSqlConnect = ::GetPrivateProfileIntW(L"SQL", L"AlternativeSqlConnect", 0, fileName) != 0;
 
     unguard();
 }
